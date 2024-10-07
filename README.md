@@ -37,7 +37,7 @@ Webhook calls that will be made by this plugin will contain the following data i
 | ------------------------------- | ----------------------------------------------------------------------- | -------------------- |
 | `project_name`                  | The project's file name.                                                | `TurntableAnimation` |
 | `frame_count`                   | The number of frames to render.                                         | `240`                |
-| `progress.percent`              | The percentage completed of the render job.                             | `0,4644351464`       |
+| `progress.percent`              | The percentage completed of the render job.                             | `46`                 |
 | `progress.frames.index_first`   | The number of the first frame of the animation to render.               | `0`                  |
 | `progress.frames.index_last`    | The number of the last frame of the animation to render.                | `239`                |
 | `progress.frames.index_current` | The number of the currently rendering frame of the animation to render. | `111`                |
@@ -49,7 +49,7 @@ Here's an example of how it would look on the receiving end.
   "project_name": "TurntableAnimation",
   "frame_count": 240, 
   "progress": {
-    "percent": 0.4644351464, // (frame_current - frame_first) / (frame_last - frame_first)
+    "percent": 46, // (index_current - index_first) / (index_last - index_first) * 100, rounded
     "frames": {
       "index_first": 0,
       "index_last" : 239,

@@ -5,7 +5,6 @@ bl_info = {
     "blender": (2, 93, 0),
     "location": "Render",
     "description": "Send webhooks to a server upon render events.",
-    "warning": "Make sure to enable « Allow Online Access » in the « System » tab!",
     "doc_url": "",
     "category": "Render",
 }
@@ -47,7 +46,7 @@ def poke_webhook(event: RenderEvents, data: dict[str, str]) -> None:
     if event == RenderEvents.PROGRESS:
         job_data = job_data | {
             "progress": {
-                "percent": (frame_current - frame_first) / (frame_last - frame_first),
+                "percent": int((frame_current - frame_first) / (frame_last - frame_first) * 100),
                 "frames": {
                     "index_first": frame_first,
                     "index_last" : frame_last,
