@@ -167,6 +167,6 @@ def unregister():
     bpy.utils.unregister_class(RenderWebhookAddonPreferences)
     bpy.utils.unregister_class(RenderWebhookAddon)
     bpy.app.handlers.render_init.remove(RenderWebhookAddon.render_start_callback)
-    bpy.app.handlers.render_write.append(RenderWebhookAddon.render_progress_callback)
+    bpy.app.handlers.render_write.remove(RenderWebhookAddon.render_progress_callback)
     bpy.app.handlers.render_complete.remove(RenderWebhookAddon.render_complete_callback)
     bpy.app.handlers.render_cancel.remove(RenderWebhookAddon.render_cancel_callback)
